@@ -13,7 +13,7 @@ class Hook
      */
     public function mediaCreate($path)
     {
-        $engine = App::make('image_placeholder');
+        $engine = new Engine();
 
         if ( !@getimagesize($path) ) {
             return;
