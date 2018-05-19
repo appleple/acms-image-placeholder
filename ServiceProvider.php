@@ -4,6 +4,7 @@ namespace Acms\Plugins\ImagePlaceholder;
 
 use ACMS_App;
 use Acms\Services\Common\HookFactory;
+use Acms\Services\Common\CorrectorFactory;
 
 class ServiceProvider extends ACMS_App
 {
@@ -46,6 +47,9 @@ class ServiceProvider extends ACMS_App
 
         $hook = HookFactory::singleton();
         $hook->attach('ImagePlaceholderHook', new Hook);
+
+        $corrector = CorrectorFactory::singleton();
+        $corrector->attach('ImagePlaceholderCorrector', new Corrector);
     }
 
     /**
